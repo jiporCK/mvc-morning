@@ -1,5 +1,6 @@
 package controller;
 
+import dao.EmployeeDao;
 import model.Employee;
 import view.EmployeeView;
 
@@ -7,11 +8,16 @@ import java.util.Scanner;
 
 public class EmployeeController {
 
-    private final Employee employee;
+//    private final Employee employee;
+    private final EmployeeDao employeeDao;
     private final EmployeeView employeeView;
 
-    public EmployeeController(Employee employee, EmployeeView employeeView) {
-        this.employee = employee;
+//    public EmployeeController(Employee employee, EmployeeView employeeView) {
+//        this.employee = employee;
+//        this.employeeView = employeeView;
+//    }
+    public EmployeeController(EmployeeDao employeeDao, EmployeeView employeeView) {
+        this.employeeDao = employeeDao;
         this.employeeView = employeeView;
     }
 
@@ -23,13 +29,15 @@ public class EmployeeController {
         System.out.print("Enter employee salary: ");
         Double salary = Double.parseDouble(scanner.nextLine());
 
-        employee.setId(id);
-        employee.setName(name);
-        employee.setSalary(salary);
+        Employee newEmployee = new Employee(id, name, salary);
+
+        employeeDao.create(newEmployee);
     }
 
-    public void showEmployee() {
-        employeeView.showEmployee(employee);
+    public void getAllEmployees() {
+        employeeView.showEmployees(
+                employeeDao.getAll()
+        );
     }
 
 }
