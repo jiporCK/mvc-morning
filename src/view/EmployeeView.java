@@ -31,6 +31,11 @@ public class EmployeeView {
         return new Employee(name, salary, hireDate);
     }
 
+    public Long showIdInput() {
+        System.out.print("Enter id: ");
+        return Long.parseLong(scanner.nextLine());
+    }
+
     public void showEmployees(List<Employee> employees){
         Table table = new Table(
                 4, BorderStyle.CLASSIC
@@ -55,6 +60,7 @@ public class EmployeeView {
                 === [[ Employee Management ]] ===
                 1. Create
                 2. Show All
+                3. Delete
                 0. Exit""");
     }
 

@@ -29,6 +29,16 @@ public class EmployeeController {
         employeeView.showEmployees(employees);
     }
 
+    public void delete() {
+        Long id = employeeView.showIdInput();
+
+        if (employeeDao.deleteById(id)) {
+            System.out.println("Deleted Successfully");
+        } else {
+            System.out.println("Failed to delete");
+        }
+    }
+
     public void run() {
         while (true) {
             try {
@@ -36,6 +46,7 @@ public class EmployeeController {
                 switch (option) {
                     case 1 -> create();
                     case 2 -> getAllEmployees();
+                    case 3 -> delete();
                     case 0 -> {
                         for (char ch : "Exiting....".toCharArray()) {
                             Thread.sleep(200);

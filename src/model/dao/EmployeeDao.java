@@ -9,4 +9,6 @@ public interface EmployeeDao {
     void create(Employee employee);
     List<Employee> getAll();
 
+    boolean deleteById(Long id);
+
 }

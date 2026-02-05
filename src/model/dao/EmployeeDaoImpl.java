@@ -17,4 +17,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return EmployeeDb.employees;
     }
 
+    @Override
+    public boolean deleteById(Long id) {
+        return EmployeeDb.employees
+                .removeIf(employee -> employee.getId().equals(id));
+    }
+
 }
