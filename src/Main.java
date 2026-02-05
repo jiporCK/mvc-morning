@@ -1,10 +1,8 @@
 import controller.EmployeeController;
-import dao.EmployeeDao;
-import dao.EmployeeDaoImpl;
-import model.Employee;
+import model.dao.EmployeeDao;
+import model.dao.EmployeeDaoImpl;
 import view.EmployeeView;
 
-import javax.script.ScriptContext;
 import java.util.Scanner;
 
 public class Main {

@@ -1,11 +1,12 @@
-package dao;
+package model.dao;
 
 import database.EmployeeDb;
-import model.Employee;
+import model.entities.Employee;
 
 import java.util.List;
 
-public class EmployeeDaoImpl implements EmployeeDao{
+public class EmployeeDaoImpl implements EmployeeDao {
+
     @Override
     public void create(Employee employee) {
         EmployeeDb.employees.add(employee);
@@ -15,4 +16,5 @@ public class EmployeeDaoImpl implements EmployeeDao{
     public List<Employee> getAll() {
         return EmployeeDb.employees;
     }
+
 }

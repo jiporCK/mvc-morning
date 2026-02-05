@@ -1,6 +1,6 @@
-package dao;
+package model.dao;
 
-import model.Employee;
+import model.entities.Employee;
 
 import java.util.List;
 

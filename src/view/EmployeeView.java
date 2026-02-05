@@ -1,28 +1,34 @@
 package view;
 
-import model.Employee;
+import model.entities.Employee;
 import org.nocrala.tools.texttablefmt.BorderStyle;
 import org.nocrala.tools.texttablefmt.Table;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 public class EmployeeView {
 
-//    public void showEmployee(Employee employee){
-//        Table table = new Table(
-//                3, BorderStyle.CLASSIC
-//        );
-//        table.addCell(" Employee Detail ", 3);
-//
-//        table.addCell(" ID ");
-//        table.addCell(employee.getId().toString(), 2);
-//        table.addCell(" Name ");
-//        table.addCell(employee.getName(), 2);
-//        table.addCell(" Salary ");
-//        table.addCell(employee.getSalary().toString(), 2);
-//
-//        System.out.println(table.render());
-//    }
+    private final static Scanner scanner = new Scanner(System.in);
+
+    public Employee displayEmployeeCreate() {
+        System.out.print("[+] Enter Employee Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("[+] Enter Employee Salary: ");
+        Double salary = Double.parseDouble(scanner.nextLine());
+
+        System.out.print("[+] Enter Hire Date(Format: 2000-4-20): ");
+        String hireDateStr = scanner.nextLine();
+        String[] parts = hireDateStr.split("-");
+        int year = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        int day = Integer.parseInt(parts[2]);
+        LocalDate hireDate = LocalDate.of(year, month, day);
+
+        return new Employee(name, salary, hireDate);
+    }
 
     public void showEmployees(List<Employee> employees){
         Table table = new Table(
