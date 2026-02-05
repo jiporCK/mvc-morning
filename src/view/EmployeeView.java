@@ -32,16 +32,18 @@ public class EmployeeView {
 
     public void showEmployees(List<Employee> employees){
         Table table = new Table(
-                3, BorderStyle.CLASSIC
+                4, BorderStyle.CLASSIC
         );
         table.addCell(" ID ");
         table.addCell(" Name ");
         table.addCell(" Salary ");
+        table.addCell(" Hire Date ");
 
         employees.forEach(employee -> {
             table.addCell(employee.getId().toString());
             table.addCell(employee.getName());
             table.addCell(employee.getSalary().toString());
+            table.addCell(employee.getHireDate().toString());
         });
 
         System.out.println(table.render());
