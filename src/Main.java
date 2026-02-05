@@ -13,8 +13,7 @@ public class Main {
         EmployeeView employeeView = new EmployeeView();
         EmployeeController controller = new EmployeeController(employeeDao, employeeView);
 
-        controller.create();
-        controller.getAllEmployees();
+        controller.run();
 
     }
 }

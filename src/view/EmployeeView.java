@@ -4,6 +4,7 @@ import model.entities.Employee;
 import org.nocrala.tools.texttablefmt.BorderStyle;
 import org.nocrala.tools.texttablefmt.Table;
 
+import javax.rmi.ssl.SslRMIClientSocketFactory;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
@@ -47,6 +48,20 @@ public class EmployeeView {
         });
 
         System.out.println(table.render());
+    }
+
+    public void showMenu() {
+        System.out.println("""
+                === [[ Employee Management ]] ===
+                1. Create
+                2. Show All
+                0. Exit""");
+    }
+
+    public int getOption() throws InterruptedException {
+        showMenu();
+        System.out.print("Enter an option: ");
+        return Integer.parseInt(scanner.nextLine());
     }
 
 }

@@ -29,4 +29,27 @@ public class EmployeeController {
         employeeView.showEmployees(employees);
     }
 
+    public void run() {
+        while (true) {
+            try {
+                int option = employeeView.getOption();
+                switch (option) {
+                    case 1 -> create();
+                    case 2 -> getAllEmployees();
+                    case 0 -> {
+                        for (char ch : "Exiting....".toCharArray()) {
+                            Thread.sleep(200);
+                            System.out.print(ch);
+                        }
+                        System.out.println();
+                        System.exit(0);
+                    }
+                }
+
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
 }
